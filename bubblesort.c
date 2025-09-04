@@ -3,6 +3,8 @@
  *
  * Algorithm
  *
+ * PRE-DECLARE printValues(), swap()
+ *
  * FUNCTION main()
  *
  * 	CREATE VARIABLE INTEGER list_max assign 9
@@ -17,15 +19,30 @@
  * 				CALL FUNCTION swap(values[j], values[j + 1])
  *				CALL FUNCTION printValues()
  *
- * 
- * FUNCTION swap(x, y) PARAMETERS: integer* x, integer* y
  *
+ * FUNCTION printValues(max, numbers) PARAMETERS: integer max, integer[] numbers
+ * 	PRINT "["
+ * 	CREATE VARIABLE INTEGER i
+ *	FORLOOP INCREMENT i (0 to max)
+ *		IF i == max - 1
+ *			PRINT "i"
+ *		ELSE
+ *			PRINT "i, " 
+ *	PRINT "]\n"
+ *
+ * FUNCTION swap(x, y) PARAMETERS: integer* x, integer* y
+ * 	CREATE VARIABLE INTEGER temp ASSIGN x
+ * 	ASSIGN ADDRESS x as y
+ * 	ASSIGN ADDRESS y as temp
+ *
+ * FUNCTION sort()
  *	
  *
  *
  *
  *
 */
+
 #include <stdio.h>
 
 void printValues(int max, int numbers[]);
@@ -68,7 +85,6 @@ void printValues(int max, int numbers[]){
 		
 	int i;
 	for (i = 0; i < max; i++){
-		//printf(" (%d, %d) ", i, max);
 		if (i == max - 1) {
 			printf("%d", numbers[i]);
 		}
