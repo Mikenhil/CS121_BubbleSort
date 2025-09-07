@@ -43,7 +43,7 @@
 #include <stdio.h>
 
 void sort(int max, int values[]);
-void printValues(int max, int values[]);
+void printValues(int max, int values[], int swapped_a, int swapped_b);
 void swap(int* x, int* y);
 
 int main() {
@@ -62,14 +62,14 @@ void sort(int max, int values[]){
 		for (j = 0; j < max - 1; j++) {
 			if (values[j] > values[j + 1]){
 				swap(values + j, values + (j + 1));
-				printValues(max, values);
+				printValues(max, values, *(values+j), *(values + (j+1)));
 			}
 		}
 	}
 
 }
 
-void printValues(int max, int values[]){
+void printValues(int max, int values[], int swapped_a, int swapped_b){
 	
 	printf("[");
 		
@@ -85,13 +85,14 @@ void printValues(int max, int values[]){
 	
 		}
 	}
-
-	printf("]\n");
+	
+	// Added additional output for the swapped elements
+	printf("] Swapped %d with %d \n", swapped_a, swapped_b);
 }
 
-void swap(int* x, int* y) {
-	int temp = *x;
+void swap(int* a, int* b) {
+	int temp = *a;
 
-	*x = *y;
-	*y = temp;
+	*a = *b;
+	*b = temp;
 }

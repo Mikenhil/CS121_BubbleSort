@@ -29,3 +29,7 @@ the bubble sort array algorithm.
 
         This program will output each swap in the process until the final swap.
 
+
+    ### Personal Additions
+        - Added a cleaner output for the printed values by checking if the current element was the last element and gave a separate output
+        - Added additional output to better distinguish which values were swapped and when
